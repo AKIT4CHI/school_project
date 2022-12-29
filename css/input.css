@@ -1,0 +1,226 @@
+  .wrapper{
+  
+  padding: 1%;
+  width: 80%;
+  margin: 0 auto;
+}
+.wrapper h1{
+  text-align: center;
+}
+
+.menu{
+  position: relative;
+  top: -103px;
+  border-bottom: 1px solid gray;
+  background-color: white;
+}
+.menu ul{
+  list-style: none;
+}
+.menu ul li{
+  display: inline;
+  padding: 1%;
+}
+
+.menu ul li a{
+  text-decoration: none;
+  font-weight: bold;
+  color: red;
+}
+
+.menu ul li a:hover{
+  color: red;
+
+}
+.text-center{
+  text-align: center;
+}
+
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+    }
+    body{
+
+      background-color: white;
+      font-family: Arial,Helvetica, sans-serif;
+      background-image: url(../images/bg1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 7% 0;
+    }
+    .wrapper1{
+      background-color: white;
+      width: 500px;
+      padding: 25px;
+      margin: -20px auto 0;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+    .text-overflow{
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 5; /* number of lines to show */
+           line-clamp: 5; 
+   -webkit-box-orient: vertical;
+   
+}
+
+
+    .wrapper1 .fa{
+      margin-right: 30px;
+    }
+    .wrapper1 .fa:hover{
+      background: none;
+    }
+    .wrapper1 h2{
+      background-color: white;
+      color: black;
+      font-size: 24px;
+      padding: 10px;
+      margin-bottom: 8px;
+      text-align: center;
+      border: 1px dashed balck;
+    }
+
+    .wrapper1 h4{
+      padding-bottom: 5px;
+      color: black;
+    }
+
+    .input_group{
+      margin-bottom: 8px;
+      width: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      padding: 5px 0;
+    }
+
+    .input_box{
+      width: 100%;
+      margin-right:12px ;
+      position: relative;
+    }
+
+    .input_box:last-child{
+      margin-right: 0;
+    }
+
+    .input_box .name{
+      padding: 14px 10px 14px 50px;
+      width: 100%;
+      background-color: white;
+      border: 1px solid black;
+      outline: none;
+      letter-spacing: 1px;
+      transition: 0.3s;
+      border-radius: 3px;
+      color: black;
+
+    }
+
+    .input_box .name:focus, .dob:focus{
+      -webkit-box-shadow: 0 0 1px 1px white;
+      -moz-box-shadow: 0 0 1px 1px black;
+      box-shadow: 0 0 1px 1px black;
+      border: 1px solid black;
+    }
+
+    .input_box .icon{
+      width: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      top: 0px;
+      color: white;
+      background-color: black;
+      border-radius: 2px 0 0 2px;
+      transition: 0.3s;
+      font-size: 20px;
+      pointer-events: none;
+      border: 1px solid #00000003 ;
+      border-right: none;
+    }
+
+    .name:focus+.icon{
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+      border: none;
+      transition: 1s;
+    }
+
+    .dob{
+      width: 30%;
+      padding: 14px;
+      text-align: center;
+      background-color: white;
+      transition: 0.3s;
+      outline: none;
+      border: 1px solid gray;
+      border-radius: 3px;
+    }
+
+    .radio{
+      display: none;
+    }
+
+    .input_box label{
+      width: 50%;
+      padding: 13px;
+      background-color: white;
+      display: inline-block;
+      float: left;
+      text-align: center;
+      border: 1px solid #c0bfbf ;
+    }
+
+    .input_box label:first-of-type{
+      border-top-left-radius: 3px;
+      border-bottom-right-radius: 3px ;
+      border-right: none;
+    }
+
+
+    .input_box label:last-of-type{
+      border-top-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    .radio:checked+label{
+      background-color: black;
+      color: white;
+      transition: 0.5s;
+    }
+
+    .input_box .button{
+      width: 100%;
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-right: 4px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+    }
+
+    .input_box .button:hover{
+      cursor: pointer;
+      background-color: black;
+
+    }
+
+
+    
+
+
+    

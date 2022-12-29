@@ -1,0 +1,325 @@
+/*
+|	Author: Chouaib Kaddouri;
+|	Theme: Food Order Website Admin;
+|	Version: 1.0; 
+*/
+
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	
+
+}
+
+.wrapper{
+	
+	padding: 1%;
+	width: 80%;
+	margin: 0 auto;
+}
+.wrapper h1{
+	text-align: center;
+}
+
+.text-center{
+	text-align: center;
+}
+.clearfix{
+	float: none;
+	clear: both;
+}
+
+.tbl-full{
+	width: 110%;
+	margin-left: -60px;
+	
+}
+.tbl-full1{
+	width: 120%;
+	margin-left: -100px;
+	
+}
+.tbl-order{
+	width: 120%;
+	margin-left: -110px;
+}
+
+.tbl-30{
+	width: 50%;
+	margin: 0 0 0 15%;
+}
+fieldset{
+	align-content: center;
+	text-align: center;
+	width: 50%;
+	padding: 5%;
+	margin: 2% auto;
+	border-radius: 15px;
+
+}
+
+
+table tr th{
+	border-bottom: 1px solid black;
+	padding: 1% 5px;
+	text-align: left;
+	text-overflow: ellipsis;
+
+
+	
+
+
+
+
+
+}
+.text-overflow{
+	overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 5; /* number of lines to show */
+           line-clamp: 5; 
+   -webkit-box-orient: vertical;
+   
+}
+
+
+table tr td{
+	padding: 1% 2px;
+	text-align: left;
+	margin: 5px;
+	
+
+}
+table tr td.bottom{
+	padding: 1% 2px;
+	text-align: left;
+	margin: 5px;
+	border-bottom: 1px solid black;
+	
+}
+
+table tr td.whitesmoke{
+	background-color: whitesmoke;
+	
+}
+
+table tr td.prdct{
+	max-width: 100px;
+	
+  	
+}
+
+.btn-primary{
+	background-color: #1e90ff;
+	padding: 1%;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 20px;
+	margin-right: 10px;
+	padding: 10px;
+	border-radius: 15px;
+
+}
+.btn-primary1{
+	background-color: #1e90ff;
+	padding: 1%;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 20px;
+	margin-right: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	position: relative;
+	top: 34px;
+	border: 1px solid black;
+	left: 2%;
+
+	
+}
+
+.btn-primary:hover{
+	background-color: #3742fa;
+}
+
+.btn-secondary{
+	background-color: #36DE54;
+	padding: 1%;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 20px;
+	margin-right: 10px;
+	padding: 10px;
+	border-radius: 15px;
+}
+
+.btn-secondary1{
+	background-color: white;
+	color: red;
+	padding: 4%;
+	border-radius: 10px;
+	border: 1px solid red;
+	cursor: pointer;
+	transition: 0.2s;
+	padding-left: 120px;
+	padding-right: 120px;
+	margin-top: 10px;
+}
+
+.btn-secondary1:hover{
+	background-color: red;
+	color: white;
+	transition: 0.2s;
+
+}
+
+.btn-secondary:hover{
+	background-color: #32CB4E;
+}
+
+.btn-danger{
+	background-color: #ff6b81;
+	padding: 1%;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 10px;
+	border-radius: 15px;
+}
+
+.btn-danger:hover{
+	background-color: #ff4757;
+}
+
+.success{
+	color: green;
+}
+
+.error{
+	color: red;
+}
+textarea{
+	resize: vertical; 
+	max-height: 200px;
+}
+
+/* CSS for Menu */
+.menu{
+	border-bottom: 1px solid gray;
+}
+.menu ul{
+	list-style: none;
+}
+.menu ul li{
+	display: inline;
+	padding: 1%;
+	position: relative;
+}
+
+.menu ul li a{
+	text-decoration: none;
+	font-weight: bold;
+	color: red;
+}
+
+.menu ul li a:hover{
+	color: red;
+
+}
+
+.menu ul li a:after{
+ position: absolute;
+        content: '';
+        height: 2px;
+		  /* adjust this to move up and down. you may have to adjust the line height of the paragraph if you move it down a lot. */
+        bottom: 7px; 
+
+
+       /****** 
+       optional values below 
+       ******/
+        
+        /* center - (optional) use with adjusting width   */
+        margin: 0 auto;
+		  left: 0;
+        right: 0;
+		  width: 0%;
+		  background: red;
+		  
+		  /* optional animation */
+		  -o-transition:.5s;
+  		  -ms-transition:.5s;
+        -moz-transition:.5s;
+        -webkit-transition:.5s;
+        transition:.5s;
+}
+.menu ul li a:hover:after{
+	width: 70%;
+}
+
+
+input[type="search"]{
+    width: 50%;
+    padding: 1%;
+    font-size: 1rem;
+    position: relative;
+    left: 20%;
+    border-radius: 5px;
+}
+
+.btn-primary-s{
+	background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 13px;
+    border-radius: 5px;
+    position: relative;
+    top: -2px;
+    left: 20%;
+}
+
+
+
+
+/* CSS for Main Content */
+.main-content{
+	background-color: white;
+	padding: 3% 0 15% 0;
+
+
+}
+
+.col-4{
+	position: relative;
+	width: 42%;
+	background-color: #f1f2f6;
+	margin: 1%;
+	padding: 2%;
+	float: left;
+	left: 30px;
+	border: 1px solid ;
+}
+/* CSS for Footer */
+
+.footer{
+	background-color: #ff4757;
+	color: white;
+}
+
+
+
+/* CSS For Login */
+.login{
+	border: 1px solid grey;
+	width: 30%;
+	margin: 10% auto;
+	padding: 2%;
+
+	
+}
