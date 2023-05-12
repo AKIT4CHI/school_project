@@ -19,6 +19,7 @@
 </head>
 
 <body>
+   
     <!-- Navbar Section Starts Here -->
     <section class="navbar">
         <div class="container">
@@ -42,9 +43,37 @@
                     <li>
                         <a href="">Contact</a>
                     </li>
-                    <li>
-                        <a href="<?php echo SITEURL; ?>shop-cart.php"><i style="font-size:24px" class="fa">&#xf07a;</i></a>
+                    <?php if (isset($_SESSION['client_id'])) {
+                        ?>
+                        <li>
+                        <a href="<?php echo SITEURL; ?>client_orders.php">My Orders</a>
                     </li>
+                        <li>
+                        <a href="<?php echo SITEURL; ?>shop-cart.php" title = "cart"><i style="font-size:24px" class="fa">&#xf07a;</i></a>
+                    
+                    </li>
+                    
+                    <li>
+                        <a href="<?php echo SITEURL; ?>logout.php" title = "LogOut"><i class="fa fa-sign-out"  style="font-size:20px"></i></a>
+                        </li>
+
+                    <?php
+                    } 
+                    else{
+                        ?>
+                        <li>
+                        <a href="<?php echo SITEURL; ?>login.php">Login</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo SITEURL; ?>inscription.php">Register</a>
+                    </li>  
+                        <?php
+                    }
+                    ?>
+
+                     
+                    
+                    
                 </ul>
             </div>
 

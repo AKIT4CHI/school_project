@@ -1,14 +1,14 @@
 <?php include('partials-font/menu.php'); ?>
 
 <?php
-
+    $client_id = $_SESSION['client_id'];
     
     if (isset($_GET['food_id'])) 
     {
         $food_id = $_GET['food_id'];
         
 
-        $sql = "SELECT * FROM tbl_cart WHERE id = $food_id";
+        $sql = "SELECT * FROM tbl_cart WHERE id = $food_id and client_id = $client_id";
 
 
 
@@ -87,7 +87,7 @@
                     $customer_email = $_POST['email'];
                     $customer_adress = $_POST['adress'];
 
-                    $sql3 = "SELECT * FROM tbl_cart";
+                    $sql3 = "SELECT * FROM tbl_cart WHERE client_id = $client_id";
                     $res3 = mysqli_query($conn, $sql3);
                     $count3 = mysqli_num_rows($res3);
 
@@ -107,7 +107,7 @@
                             $product_id_ = $row3['product_id'];
                             $product_qty_ = $row3['quantity'];
 
-                            $sql4 = "SELECT * FROM tbl_food where id = $product_id_";
+                            $sql4 = "SELECT * FROM tbl_product where id = $product_id_";
                             $res4 = mysqli_query($conn,$sql4);
 
                             while ($row4 = mysqli_fetch_assoc($res4)) {
@@ -117,8 +117,11 @@
                                 $moneyWon += $money;
                                 $stock = $row4['stock'];
                                 $newStock = $stock - $product_qty_;
-                                $sql5 = "UPDATE tbl_food set stock = $newStock, Money_won = $moneyWon where id = $product_id_";
+                                $sql5 = "UPDATE tbl_product set stock = $newStock, Money_won = $moneyWon where id = $product_id_";
                                 $res5 = mysqli_query($conn,$sql5);
+
+                                $sql6 = "INSERT into tbl_revenue set product_id = $product_id_, Money_won = $moneyWon";
+                                $res6 = mysqli_query($conn,$sql6);
                             }
 
 
@@ -130,10 +133,10 @@
                     $total_product = implode(",",$product_id);
                     $qty1 = implode(",",$product_qty);
                     echo $total_product;
-                    $detail_query = mysqli_query($conn, "INSERT INTO tbl_order(customer_name, customer_contact, customer_email, customer_address, status, product_id, order_date, total, qty) VALUES('$customer_name','$customer_contact','$customer_email','$customer_adress','$status','$total_product','$order_date','$total','$qty1')");
+                    $detail_query = mysqli_query($conn, "INSERT INTO tbl_order(customer_name, customer_contact, customer_email, customer_address, status, product_id, order_date, total, qty, client_id) VALUES('$customer_name','$customer_contact','$customer_email','$customer_adress','$status','$total_product','$order_date','$total','$qty1','$client_id')");
 
                     if ($detail_query==TRUE) {
-                        $sql1 = "DELETE FROM tbl_cart";
+                        $sql1 = "DELETE FROM tbl_cart WHERE client_id = $client_id";
                         $res1 = mysqli_query($conn, $sql1);
                         echo '<script>alert("Your Order Is Saved")</script>';
                         header('location'.SITEURL."categories.php");

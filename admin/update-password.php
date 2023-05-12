@@ -79,7 +79,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 		$confirm_password = md5($_POST['confirm_password']);
 
 		//2. check wheter the user with current id or password exist or not
-		$sql = "SELECT * FROM tbl_admin WHERE id =$id AND password = '$current_password'";
+		$sql = "SELECT * FROM tbl_user WHERE id =$id AND password = '$current_password'";
 		//Execute the Query
 
 		$res = mysqli_query($conn, $sql);
@@ -96,7 +96,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 				if ($new_password==$confirm_password) {
 
 					//Update password
-					$sql2 = "UPDATE tbl_admin SET
+					$sql2 = "UPDATE tbl_user SET
 						password = '$new_password'
 						WHERE id = $id
 					";

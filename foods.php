@@ -34,7 +34,7 @@ if (isset($_SESSION['add-to-cart'])) {
         <div class="container">
             <h2 class="text-center">Products</h2>
             <?php 
-                $sql = "SELECT * FROM tbl_food WHERE active='Yes'";
+                $sql = "SELECT * FROM tbl_product WHERE active='Yes'";
                 $res = mysqli_query($conn, $sql);
                 $count = mysqli_num_rows($res);
                 if ($count > 0) {

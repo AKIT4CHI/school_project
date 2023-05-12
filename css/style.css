@@ -538,3 +538,88 @@ h4{
             color: #aaa;
         }
 
+.tbl-order{
+    width: 100%;
+    
+}
+
+.btn-primary-font{
+    background-color: #1e90ff;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 15px;
+
+}
+.btn-danger-font{
+    background-color: red;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.tbl-30{
+    width: 50%;
+    margin: 0 0 0 15%;
+}
+
+
+
+table tr th{
+    border-bottom: 1px solid black;
+    padding: 1% 5px;
+    text-align: left;
+    text-overflow: ellipsis;
+
+
+    
+
+
+
+
+
+}
+.text-overflow{
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 5; /* number of lines to show */
+           line-clamp: 5; 
+   -webkit-box-orient: vertical;
+   
+}
+
+
+table tr td{
+    padding: 1% 2px;
+    text-align: left;
+    margin: 5px;
+    
+
+}
+table tr td.bottom{
+    padding: 1% 2px;
+    text-align: left;
+    margin: 5px;
+    border-bottom: 1px solid black;
+    
+}
+
+table tr td.whitesmoke{
+    background-color: whitesmoke;
+    
+}
+
+table tr td.prdct{
+    max-width: 100px;
+    
+    
+}

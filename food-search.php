@@ -37,8 +37,9 @@ if (isset($_SESSION['add-to-cart'])) {
             <?php
             // Get search Keyword
             $search = $_POST['search'];
+            $search = stripcslashes($search);
             //SQL Query To Get food based on Search
-            $sql = "SELECT * FROM tbl_food WHERE ((title  LIKE '%$search%') OR (description LIKE '%search%'))  AND (active='Yes')";
+            $sql = "SELECT * FROM tbl_product WHERE ((title  LIKE '%$search%') OR (description LIKE '%$search%')) and active = 'Yes'";
             //Execute the Query
             $res = mysqli_query($conn, $sql);
             $count = mysqli_num_rows($res);

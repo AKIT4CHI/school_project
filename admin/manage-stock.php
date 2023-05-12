@@ -43,7 +43,7 @@
 							
 
 							
-							$sql1 = "SELECT * FROM tbl_food WHERE id=$product_id";
+							$sql1 = "SELECT * FROM tbl_product WHERE id=$product_id";
 							$res1 = mysqli_query($conn, $sql1);
 							$row1 = mysqli_fetch_assoc($res1);
 							$image_name = $row1['image_name'];

@@ -47,7 +47,7 @@ if (isset($_SESSION['add-to-cart'])) {
         <div class="container">
             <h2 class="text-center">Products</h2>
             <?php
-                $sql2 = "SELECT * FROM tbl_food WHERE category_id=$category_id";
+                $sql2 = "SELECT * FROM tbl_product WHERE category_id=$category_id";
 
                 $res2 = mysqli_query($conn, $sql2);
 

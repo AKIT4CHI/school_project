@@ -13,7 +13,7 @@
 	}
 
 	$sql3 = "INSERT into tbl_actions set
-			admin_id = $user_id,
+			user_id = $user_id,
 			action = 'deleted category $title'
 				";
 	$res3 = mysqli_query($conn, $sql3);

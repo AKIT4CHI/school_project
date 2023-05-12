@@ -54,7 +54,7 @@
 				</tr>
 
 				<?php
-					$sql = "SELECT * FROM tbl_food";
+					$sql = "SELECT * FROM tbl_product";
 
 					$res = mysqli_query($conn, $sql);
 

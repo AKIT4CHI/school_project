@@ -31,7 +31,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 			$id = $_GET['id'];
 
 			//2. Create SQL Query to Get the Details
-			$sql="SELECT * FROM tbl_admin WHERE id='$id'";
+			$sql="SELECT * FROM tbl_user WHERE id='$id'";
 
 			//EXECUTE THE QUERY
 			$res=mysqli_query($conn, $sql);
@@ -168,7 +168,7 @@ if (isset($_POST['submit'])) {
 	$adress = $_POST['adress'];
 	$password1 = md5($_POST['password']);
 	if ($password1==$password) {
-		$query= mysqli_query($conn, "SELECT * FROM tbl_admin WHERE username='$username1'");
+		$query= mysqli_query($conn, "SELECT * FROM tbl_user WHERE username='$username1'");
 		if (mysqli_num_rows($query) > 0 && ($username1!=$username)) {
 			
 			
@@ -176,7 +176,7 @@ if (isset($_POST['submit'])) {
 			echo '<script>alert("Sorry this username already exists")</script>';
 		}
 		else{
-			$sql = "UPDATE tbl_admin SET 
+			$sql = "UPDATE tbl_user SET 
 				full_name='$full_name',
 				email='$email',
 				username='$username1',

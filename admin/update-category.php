@@ -203,7 +203,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 					$ext = end(explode('.', $image_name));
 
 					//Rename the image
-					$image_name = "Food_category_".rand(000, 999).'.'.$ext;// e.g "Food_category_153.jpg"
+					$image_name = "Product_category_".rand(000, 999).'.'.$ext;// e.g "Food_category_153.jpg"
 
 					$source_path = $_FILES['image']['tmp_name'];
 
@@ -252,7 +252,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 			";
 
 			$sql2 = "INSERT into tbl_actions set
-				admin_id = $user_id,
+				user_id = $user_id,
 				action = 'updated category $title'
 				";
 				$res2 = mysqli_query($conn, $sql2);

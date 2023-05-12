@@ -27,7 +27,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 			if ($count > 0) {
 				$row = mysqli_fetch_assoc($res);
 				$customer_name = $row['customer_name'];
-				$title = $row['food'];
+				
 				$total = $row['total'];
 				$status = $row['status'];
 
@@ -126,7 +126,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 				$res2 = mysqli_query($conn, $sql2);
 
 				$sql3 = "INSERT into tbl_actions set
-				admin_id = $user_id,
+				user_id = $user_id,
 				action = 'updated order status for $customer_name to $status'
 				";
 				$res3 = mysqli_query($conn, $sql3);

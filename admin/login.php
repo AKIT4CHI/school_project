@@ -31,7 +31,7 @@
 			<span class="text-center">Login</span>
 		<div class="input-container">
 			<input type="text" name="username" />
-			<label>Full Name</label>
+			<label>UserName</label>
 		</div>	
 		<div class="input-container">
 			<input type="password" name="password"/>
@@ -66,7 +66,7 @@
 		$password = md5($_POST['password']);
 
 		//2. Sql To check wheter the user with username and password exist or not
-		$sql = "SELECT * FROM tbl_admin WHERE username = '$username' AND password = '$password'";
+		$sql = "SELECT * FROM tbl_user WHERE username = '$username' AND password = '$password'";
 
 		//3. Execute the Query
 		$res = mysqli_query($conn, $sql);

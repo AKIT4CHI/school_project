@@ -15,6 +15,7 @@
 
     <!-- font awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom CSS file -->
     <link rel="stylesheet" href="style.css">
@@ -38,7 +39,7 @@ if (isset($_SESSION['add-to-cart'])) {
     		if (isset($_GET['id'])) {
     			$id = $_GET['id'];
 
-    			$sql = "SELECT * from tbl_food WHERE id=$id";
+    			$sql = "SELECT * from tbl_product WHERE id=$id";
 				$res = mysqli_query($conn,$sql);
 
 				if ($res==TRUE) {
@@ -53,7 +54,7 @@ if (isset($_SESSION['add-to-cart'])) {
                         $Stitle = $row['Stitle'];
 					}
 				}
-
+}
     		
 
             
@@ -475,9 +476,33 @@ h4{
                     <li>
                         <a href="">Contact</a>
                     </li>
-                    <li>
-                        <a href="<?php echo SITEURL; ?>shop-cart.php"><i style="font-size:24px" class="fa">&#xf07a;</i></a>
+                    <?php if (isset($_SESSION['client_id'])) {
+                                                ?>
+                        <li>
+                        <a href="<?php echo SITEURL; ?>client_orders.php">My Orders</a>
+                        </li>
+                        <li>
+                        <a href="<?php echo SITEURL; ?>shop-cart.php" title = "cart"><i style="font-size:24px" class="fa">&#xf07a;</i></a>
+                    
                     </li>
+                    
+                    <li>
+                        <a href="<?php echo SITEURL; ?>logout.php" title = "LogOut"><i class="fa fa-sign-out"  style="font-size:20px"></i></a>
+                    </li>
+
+                    <?php
+                    } 
+                    else{
+                        ?>
+                        <li>
+                        <a href="<?php echo SITEURL; ?>login.php">Login</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo SITEURL; ?>inscription.php">Register</a>
+                    </li>  
+                        <?php
+                    }
+                    ?>
                 </ul>
             </div>
 
@@ -618,4 +643,3 @@ h4{
     <script src="./index.js"></script>
 </body>
 </html>
-<?php } ?>

@@ -11,6 +11,10 @@
 					echo $_SESSION['update-order'];
 					unset($_SESSION['update-order']);
 				}
+				if (isset($_SESSION['order-cancel-client'])) {
+					echo $_SESSION['order-cancel-client'];
+					unset($_SESSION['order-cancel-client']);
+				}
 			?>
 			<form action="<?php echo SITEURL; ?>admin/order-search.php" method="POST">
                 <input type="search" name="search" placeholder="Search for Order..." required>
@@ -45,13 +49,12 @@
 					$count = mysqli_num_rows($res);
 					$sn=1;
 
-					if ($count > 1) {
+					if ($count > 0) {
 						while($row = mysqli_fetch_assoc($res))
 						{
 						
 						$id = $row['id'];
-						$title = $row['food'];
-						$price = $row['price'];
+						
 						$qty = $row['qty'];
 						$total = $row['total'];
 						$order_date = $row['order_date'];
@@ -61,6 +64,8 @@
 						$customer_email = $row['customer_email'];
 						$customer_adress = $row['customer_address'];
 						$product_id = $row['product_id'];
+						$client_id = $row['client_id'];
+						$cancel = $row['cancel'];
 
 						$product_id_exp = explode(",",$product_id);
 						$product_num = count($product_id_exp);
@@ -70,7 +75,7 @@
 						{
 							$idk = ${'something'.$i} = $value;
 							$i++;
-							$sql1 = "SELECT * FROM tbl_food WHERE id = $idk";
+							$sql1 = "SELECT * FROM tbl_product WHERE id = $idk";
 							$res1 = mysqli_query($conn, $sql1);
 							$count1 = mysqli_num_rows($res1);
 							if ($count1 > 0) 
@@ -118,6 +123,16 @@
 						<td>
 						<a href="<?php echo SITEURL ?>admin/update-order.php?id=<?php echo $id; ?>" class="btn-secondary" title="Update Order Status"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 						<a href="<?php echo SITEURL ?>admin/order-info.php?order_id=<?php echo $id; ?>" class="btn-primary" title="Order Inforamtion"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+						<a href="<?php echo SITEURL ?>admin/client-order.php?client_id=<?php echo $client_id; ?>" class="btn-forth" title="View This Client Orders"><i class="fa fa-eye" aria-hidden="true"></i></a>
+						<?php if ($cancel==1) {
+							?>
+							<a href="<?php echo SITEURL ?>admin/cancel-order.php?order_id=<?php echo $id; ?>" class="btn-danger" title="Accept Client Cancel To Order"><i class="fa fa-check" aria-hidden="true"></i></a>
+							<?php
+						}
+
+
+						?>
+						
 						
 						</td>
 						</tr>

@@ -21,7 +21,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 			$user_id = $_SESSION['user_id'];
 
 
-			$sql = "SELECT * FROM tbl_food WHERE id = '$id'";
+			$sql = "SELECT * FROM tbl_product WHERE id = '$id'";
 			
 			$res = mysqli_query($conn, $sql);
 
@@ -33,7 +33,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 					
 					$row = mysqli_fetch_assoc($res);
 
-					$Stitle = $row['Stitle'];
+					$Stitle = $row['brand'];
 					$title = $row['title'];
 					$description = $row['description'];
 					$price = $row['price'];
@@ -262,7 +262,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 					$ext = end ($image_info);
 
 					//Rename the image
-					$image_name = "Food_Name_".rand(0000, 9999).".".$ext;// e.g "Food_category_153.jpg"
+					$image_name = "Product_Name_".rand(0000, 9999).".".$ext;// e.g "Food_category_153.jpg"
 
 					$source_path = $_FILES['image']['tmp_name'];
 
@@ -294,7 +294,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 				$image_name = $current_image;
 			}
 
-			$query = mysqli_query($conn, "SELECT * FROM tbl_food WHERE title = '$title1'");
+			$query = mysqli_query($conn, "SELECT * FROM tbl_product WHERE title = '$title1'");
 			if (mysqli_num_rows($query)>0 && ($title1!=$title)) {
 				
 				echo '<script>alert("Sorry this title already exists")</script>';
@@ -302,9 +302,9 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 			else{
 
 				
-				$sql2 = "UPDATE tbl_food SET
+				$sql2 = "UPDATE tbl_product SET
 				title = '$title1',
-				Stitle = '$Stitle',
+				brand = '$Stitle',
 				price  = $price,
 				image_name = '$image_name',
 				description = '$description',
@@ -316,7 +316,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 				$res2 = mysqli_query($conn, $sql2);	
 
 				$sql3 = "INSERT into tbl_actions set
-				admin_id = $user_id,
+				user_id = $user_id,
 				action = 'updated product $title'
 				";
 				$res3 = mysqli_query($conn, $sql3);

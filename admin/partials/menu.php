@@ -1,7 +1,12 @@
 <?php include ('../config/constants.php'); 
 	  include('login-check.php');
-	  error_reporting(0);
-	  ini_set('display_errors', 0);
+	  
+
+	  
+	  if (isset($_SESSION['login'])) {
+			echo $_SESSION['login'];
+			unset($_SESSION['login']);
+		}
 
 ?>
 
@@ -19,6 +24,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 <body>
+	<?php
+	$user_id = $_SESSION['user_id'];
+		$sql = "SELECT COUNT(checked) as 'Check' FROM tbl_message WHERE checked='No' and user_id = $user_id";
+		$res = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($res);
+		$check = $row['Check'];
+	 ?>
 	<!-- Menu Section Starts -->
 	<div class="menu text-center">
 		<div class="wrapper">
@@ -29,6 +41,10 @@
 				<li><a href="manage-food.php">Products</a></li>
 				<li><a href="manage-stock.php">Stock</a></li>
 				<li><a href="manage-order.php">Order</a></li>
+				<li><a href="clients.php">Clients</a></li>
+				<li><a href="Messages.php">Messages <?php if ($check > 0) {
+					echo "(!)";
+				}  ?></a></li>
 				<li><a href="logout.php">Logout</a></li>
 
 			</ul>

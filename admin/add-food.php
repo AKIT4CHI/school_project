@@ -221,7 +221,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 					$ext = end ($image_info);
 
 					//Rename the image
-					$image_name = "Food_Name_".rand(0000, 9999).".".$ext;// e.g "Food_category_153.jpg"
+					$image_name = "Product_Name_".rand(0000, 9999).".".$ext;// e.g "Food_category_153.jpg"
 
 					$source_path = $_FILES['image']['tmp_name'];
 
@@ -249,14 +249,14 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 				$image_name = "";
 			}
 
-			$query = mysqli_query($conn, "SELECT * FROM tbl_food WHERE title = '$title'");
+			$query = mysqli_query($conn, "SELECT * FROM tbl_product WHERE title = '$title'");
 			if (mysqli_num_rows($query)>0) {
 				
 				echo '<script>alert("Sorry this title already exists")</script>';
 			}
 			else{
-				$sql1 = "INSERT INTO tbl_food SET
-				Stitle = '$Stitle',
+				$sql1 = "INSERT INTO tbl_product SET
+				brand = '$Stitle',
 				title = '$title',
 				price  = $price,
 				image_name = '$image_name',
@@ -268,7 +268,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 				";
 
 				$sql2 = "INSERT into tbl_actions set
-				admin_id = $user_id,
+				user_id = $user_id,
 				action = 'added product $title'
 				";
 				

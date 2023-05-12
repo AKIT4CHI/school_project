@@ -1,4 +1,6 @@
-<?php include('config/constants.php'); ?>
+<?php include('config/constants.php');
+$client_id = $_SESSION['client_id'];
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -410,7 +412,7 @@ h4{
         if (isset($_POST['update_btn'])) {
             $update_value = $_POST['quantity'];
             $update_quantity_id = $_POST['update_quantity_id'];
-            $update_quantity_query = mysqli_query($conn, "UPDATE tbl_cart SET quantity = $update_value WHERE product_id = $update_quantity_id"  );
+            $update_quantity_query = mysqli_query($conn, "UPDATE tbl_cart SET quantity = $update_value WHERE product_id = $update_quantity_id and client_id = $client_id"  );
             
         }
      ?>
@@ -436,9 +438,33 @@ h4{
                     <li>
                         <a href="">Contact</a>
                     </li>
-                    <li>
-                        <a href="<?php echo SITEURL; ?>shop-cart.php"><i style="font-size:24px" class="fa">&#xf07a;</i></a>
+                    <?php if (isset($_SESSION['client_id'])) {
+                        ?>
+                        <li>
+                        <a href="<?php echo SITEURL; ?>client_orders.php">My Orders</a>
                     </li>
+                        <li>
+                        <a href="<?php echo SITEURL; ?>shop-cart.php" title = "cart"><i style="font-size:24px" class="fa">&#xf07a;</i></a>
+                    
+                    </li>
+                    
+                    <li>
+                        <a href="<?php echo SITEURL; ?>logout.php" title = "LogOut"><i class="fa fa-sign-out"  style="font-size:20px"></i></a>
+                        </li>
+
+                    <?php
+                    } 
+                    else{
+                        ?>
+                        <li>
+                        <a href="<?php echo SITEURL; ?>login.php">Login</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo SITEURL; ?>inscription.php">Register</a>
+                    </li>  
+                        <?php
+                    }
+                    ?>
                 </ul>
             </div>
 
@@ -475,7 +501,7 @@ h4{
                                 <div class="col-sm-9">
                                     <!-- cart item -->
                                     <?php 
-                                    $sql = "SELECT * FROM tbl_cart";
+                                    $sql = "SELECT * FROM tbl_cart WHERE client_id = $client_id";
                                     $res = mysqli_query($conn, $sql);   
                 if ($res==TRUE) {
                     $count = mysqli_num_rows($res);
@@ -488,7 +514,7 @@ h4{
                             $id = $row['id'];
                             $product_id = $row['product_id'];
                             $product_id_array = array($product_id);
-                            $sql1 = "SELECT * FROM tbl_food WHERE id = $product_id";
+                            $sql1 = "SELECT * FROM tbl_product WHERE id = $product_id";
                             $res1 = mysqli_query($conn, $sql1);
                             while($row1 = mysqli_fetch_assoc($res1) ){
                             $title = $row1['title'];

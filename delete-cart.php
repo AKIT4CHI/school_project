@@ -1,8 +1,8 @@
 <?php include('config/constants.php');
-
+$client_id = $_SESSION['client_id'];
  $id = $_GET['id'];
 
- $sql = "DELETE FROM tbl_cart WHERE id=$id";
+ $sql = "DELETE FROM tbl_cart WHERE id=$id, client_id = $client_id";
 
  $res = mysqli_query($conn, $sql);
 

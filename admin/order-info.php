@@ -58,7 +58,7 @@
 							$idk = ${'something'.$i} = $value;
 							$i++;
 							$idk1 = $qty_exp[$index];
-							$sql2 = "SELECT * FROM tbl_food WHERE id = $idk";
+							$sql2 = "SELECT * FROM tbl_product WHERE id = $idk";
 							$res2 = mysqli_query($conn, $sql2);
 							$count2 = mysqli_num_rows($res2);
 							if ($count2 > 0) 

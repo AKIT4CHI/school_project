@@ -23,7 +23,7 @@
 				if (isset($_SESSION['update'])) {
 					echo $_SESSION['update'];
 					unset($_SESSION['update']);
-					
+					 
 				}
 				if (isset($_SESSION['user-not-found'])) {
 					echo $_SESSION['user-not-found'];
@@ -68,7 +68,7 @@
 
 				<?php 
 					//Query to Get all admin
-					$sql = "SELECT * FROM tbl_admin where id = $user_id";
+					$sql = "SELECT * FROM tbl_user where id = $user_id";
 					//Execute the Query
 					$res = mysqli_query($conn, $sql);
 
@@ -96,7 +96,7 @@
 								$sn++;
 
 
-								//display the values in ouor table
+								//display the values in uor table
 								?>
 
 								<tr>
@@ -122,6 +122,9 @@
 							
 							echo "<div class = 'error'>No Admins available</div>";
 						}
+					}
+					else{
+						echo"test";
 					}
 				?>
 

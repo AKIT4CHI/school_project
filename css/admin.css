@@ -197,6 +197,38 @@ table tr td.prdct{
 	background-color: #ff4757;
 }
 
+.btn-third{
+	background-color: #3DCBEE;
+	padding: 1%;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 20px;
+	margin-right: 10px;
+	padding: 10px;
+	border-radius: 15px;
+}
+.font-weight{
+	font-weight: 600;
+}
+.btn-third:hover{
+	background-color: #32ACCA;
+}
+.btn-forth{
+	background-color: #3DCBEE;
+	padding: 1%;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 20px;
+	margin-right: 10px;
+	padding: 10px;
+	border-radius: 15px;
+}
+.btn-forth:hover{
+	background-color: #32ACCA;
+}
+
 .success{
 	color: green;
 }

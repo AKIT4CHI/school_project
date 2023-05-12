@@ -21,7 +21,12 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 		$id = $_GET['id'];
 		$user_id = $_SESSION['user_id'];
 
-			$sql = "SELECT * FROM tbl_food WHERE id=$id";
+		if (isset($_SESSION['login'])) {
+			echo $_SESSION['login'];
+			unset($_SESSION['login']);
+		}
+
+			$sql = "SELECT * FROM tbl_product WHERE id=$id";
 			$res = mysqli_query($conn, $sql);
 			$count = mysqli_num_rows($res);
 
@@ -33,7 +38,7 @@ font-awesome/4.2.0/css/font-awesome.min.css">
 				$stock = $row['stock'];
 				$moneySpent = $row['Money_spent'];
 
-				$sql1 = "SELECT SUBSTRING_INDEX(title,' ', 6) as DesiredWord from tbl_food WHERE id=$id";
+				$sql1 = "SELECT SUBSTRING_INDEX(title,' ', 6) as DesiredWord from tbl_product WHERE id=$id";
 				$res1 = mysqli_query($conn,$sql1);
 				$row1 = mysqli_fetch_assoc($res1);
 				$title = $row1['DesiredWord'];
@@ -160,15 +165,20 @@ if (isset($_POST['submit'])) {
 
 	$res2 = mysqli_query($conn,$sql2);
 
-	$sql3 = "UPDATE tbl_food set Money_spent = $moneySpent,
+	$sql3 = "UPDATE tbl_product set Money_spent = $moneySpent,
 	stock = $stock
 	 where id = $id";
 	$res3 = mysqli_query($conn,$sql3);
 
+	$sql5 = "INSERT into tbl_revenue set product_id = $id,
+	Money_spent = $stock_price
+	";
+	$res5 = mysqli_query($conn, $sql5);
+
 	
 
 	$sql4 = "INSERT into tbl_actions set
-				admin_id = $user_id,
+				user_id = $user_id,
 				action = 'added stock of $stock1 to $title'
 				";
 				$res4 = mysqli_query($conn, $sql4);

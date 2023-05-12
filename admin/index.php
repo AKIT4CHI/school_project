@@ -1,9 +1,11 @@
- 
+
 <?php include('partials/menu.php') ?>
+
 	<!-- Main Section Starts -->
 	<div class="main-content">
 		<div class="wrapper">
 			<h1>Dashboard</h1>
+			
 			<br><br>
 
 			<?php
@@ -25,7 +27,7 @@
 			</div>
 			<div class="col-4 text-center">
 				<?php
-					$sql1 = "SELECT * FROM tbl_food";
+					$sql1 = "SELECT * FROM tbl_product";
 					$res1 = mysqli_query($conn, $sql1);
 					$count1 = mysqli_num_rows($res1)
 				 ?>
